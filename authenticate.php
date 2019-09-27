@@ -1,5 +1,5 @@
 <?php
-    setcookie('username', $_POST['username'])
+    setcookie('username', $_POST['username']);
     $submitted = !empty($_POST); 
 ?> 
 <!DOCTYPE html> 
@@ -9,17 +9,19 @@
         <title>Bookstore</title> 
     </head> 
     <body>    
-    <p>You are <?php echo $_COOKIE['username']; ?></p>
-        <p>Form submitted? <?php echo (int) $submitted; ?>
-        </p>    
-        <p>Your login info is</p>
-            <ul>       
+    <?php 
+        if ($submitted): 
+    ?>    <p>Your login info is</p>    
+            <ul>        
                 <li><b>username</b>: 
-                    <?php echo $_POST['username']; ?>
-                </li>        
-                <li><b>password</b>: 
-                    <?php echo $_POST['password']; ?>
+                <?php echo $_POST['username']; ?>
+                </li>       
+                 <li><b>password</b>: 
+                 <?php echo $_POST['password']; ?>
                 </li>    
             </ul> 
+                <?php else: ?>    
+                <p>You did not submit anything.</p> 
+            <?php endif; ?>
     </body> 
 </html>

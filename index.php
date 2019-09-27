@@ -9,18 +9,34 @@
     </head> 
 
     <body>
-        <p>You looking? 
-        <?php echo (int) $looking; ?></p>
-        <p>The book you are looking for is</p>
-            <ul>
-                <li>
-                    <b>Title</b>: 
+    <?php 
+        if (isset($_COOKIE['username'])) {
+            echo "You are " . $_COOKIE['username']; } 
+        else { 
+            echo "You are not authenticated."; 
+        } 
+    ?>    
+        </p> 
+    <?php 
+        if (isset($_GET['title']) && isset($_GET['author'])) 
+        { 
+    ?>    
+        <p>The book you are looking for is</p>    
+            <ul>        
+                <li><b>Title</b>: 
                     <?php echo $_GET['title']; ?>
-                </li> 
+                </li>        
                 <li><b>Author</b>: 
                     <?php echo $_GET['author']; ?>
-                </li>   
-            </ul>
+                </li>    
+            </ul> 
+        <?php 
+        }else { 
+        ?>    
+            <p>You are not looking for a book?</p>
+        <?php 
+        }
+        ?>
     </body> 
 </html>
     
