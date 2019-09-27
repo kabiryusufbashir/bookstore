@@ -29,4 +29,9 @@
 
     unset($books['Web Development']);
     print_r($books);
+    
+    echo '<hr>';
+    $people = [];
+    var_dump(isset($people[90]));
+
 ?>
