@@ -24,4 +24,9 @@
 
     echo '<h2>New book Added</h2>';
     print_r($books);
+
+    echo '<h2>Unset an Array</h2>';
+
+    unset($books['Web Development']);
+    print_r($books);
 ?>
