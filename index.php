@@ -1,44 +1,25 @@
 <?php
-    $number = 123;
-    var_dump($number);
-    $number = 'abc';
-    //var_dump($number);
-
-    echo '<h1>Arrays</h1>';
-    $books = [
-        'Introduction to Computer Applications'=>[
-            'author'=> 'Yusuf',
-            'status'=> true,
-            'cost'=> 3400
-        ],
-        'Web Development'=>[
-            'author'=>'Kabir Yusuf Bashir',
-            'status'=> false,
-            'cost'=> null
-        ]
-
-    ];
-    
-    print_r($books);
-
-    $books['Maths'] = ['author'=>'Jime', 'status'=>true,'cost'=>3500];
-
-    echo '<h2>New book Added</h2>';
-    print_r($books);
-
-    echo '<h2>Unset an Array</h2>';
-
-    unset($books['Web Development']);
-    print_r($books);
-    
-    echo '<hr>';
-    $people = [];
-    var_dump(isset($people[90]));
-    
-    echo '<hr>';
-    var_dump(in_array('author', $books));
-
-    echo '<hr>';
-    sort($books);
-    var_dump($books);
+    $looking = isset($_GET['title']) || isset($_GET['author']); 
 ?>
+
+<!DOCTYPE html> <html lang="en"> 
+    <head>   
+        <meta charset="UTF-8">
+        <title>Bookstore</title> 
+    </head> 
+
+    <body>
+        <p>You lookin'? <?php echo (int) $looking; ?></p>
+        <p>The book you are looking for is</p>
+            <ul>
+                <li>
+                    <b>Title</b>: 
+                    <?php echo $_GET['title']; ?>
+                </li> 
+                <li><b>Author</b>: 
+                    <?php echo $_GET['author']; ?>
+                </li>   
+            </ul>
+    </body> 
+</html>
+    
