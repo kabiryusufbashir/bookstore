@@ -17,7 +17,8 @@
             'cost'=> null
         ]
 
-        ];
+    ];
+    
     print_r($books);
 
     $books['Maths'] = ['author'=>'Jime', 'status'=>true,'cost'=>3500];
@@ -33,5 +34,11 @@
     echo '<hr>';
     $people = [];
     var_dump(isset($people[90]));
+    
+    echo '<hr>';
+    var_dump(in_array('author', $books));
 
+    echo '<hr>';
+    sort($books);
+    var_dump($books);
 ?>
