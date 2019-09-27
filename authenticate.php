@@ -1,4 +1,7 @@
-<?php $submitted = !empty($_POST); ?> 
+<?php
+    setcookie('username', $_POST['username'])
+    $submitted = !empty($_POST); 
+?> 
 <!DOCTYPE html> 
 <html lang="en"> 
     <head>    
@@ -6,6 +9,7 @@
         <title>Bookstore</title> 
     </head> 
     <body>    
+    <p>You are <?php echo $_COOKIE['username']; ?></p>
         <p>Form submitted? <?php echo (int) $submitted; ?>
         </p>    
         <p>Your login info is</p>
