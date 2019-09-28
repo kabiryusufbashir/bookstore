@@ -9,6 +9,10 @@
     </head> 
 
     <body>
+    <?php
+        include './functions.php';
+    ?>    
+    <p><?php echo loginMessage(); ?></p>
     <?php 
         if (isset($_COOKIE['username'])) {
             echo "You are " . $_COOKIE['username']; } 
@@ -57,24 +61,24 @@
                         'available' => false,           
                         'pages' => 457,          
                         'isbn' => 9785267006323        
-                    ],    
+                    ],
+                    [            
+                        'title' => 'Introduction to Web Development',     
+                        'author' => 'Kabir Yusuf Bashir',      
+                        'available' => true,           
+                        'pages' => 900,          
+                        'isbn' => 990267006323        
+                    ]    
                 ];
            echo  '<ul>'; 
                     
-                    foreach ($books as $book): 
-                    
-                    echo '       
-                        <li>            
-                            <i>
-                                '.$book['title'].'
-                            </i> 
-                                '.$book['author'];
-                                 
-                                if (!$book['available']):           
-                                    echo '<b>Not available</b>'; 
-                                endif;        
-                                    echo '</li>'; 
-                        endforeach;
+           echo 
+           '<ul>';
+                foreach ($books as $book):    
+                    echo '
+                       <li>'. printableTitle($book); 
+                       '</li>';
+                endforeach; 
             echo   '</ul>';
         ?>    
                 
