@@ -15,10 +15,38 @@
     <p>
     <?php 
         echo loginMessage(); 
-        $booksJson = file_get_contents('./book.json'); 
-        $books = json_decode($booksJson, true); 
+            
+            echo '<table>';
+            echo 
+            '<tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Available</th>
+                <th>Pages</th>
+                <th>Isbn</th>
+            </tr>';
+            $booksJson = file_get_contents('./book.json'); 
+            $books = json_decode($booksJson, true); 
+        
+            foreach($books as $book){
+                echo '<tr>';
+                echo '<td>'.$book['title'].'</td>';
+                echo '<td>'.$book['author'].'</td>';
+                echo '<td>'.$book['available'].'</td>';
+                echo '<td>'.$book['pages'].'</td>';
+                echo '<td>'.$book['isbn'].'</td>';
+                echo '</tr><br>';
+            }
+            echo '</table>';
             if (isset($_GET['title'])){ 
-                echo '<p>Looking for <b>' . $_GET['title'] . '</b></p>'; 
+                echo '
+                <p>Looking for <b>' . $_GET['title'] . '</b>
+                </p>'; 
+                if (bookingBook($books, $_GET['title'])) { 
+                    echo 'Booked!';    
+                } else {        
+                    echo 'The book is not available...';    
+                }
             } else {    
                 echo '<p>You are not looking for a book?</p>'; 
             } 
