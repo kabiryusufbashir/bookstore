@@ -43,7 +43,8 @@
                 <p>Looking for <b>' . $_GET['title'] . '</b>
                 </p>'; 
                 if (bookingBook($books, $_GET['title'])) { 
-                    echo 'Booked!';    
+                    echo 'Booked!';
+                    updateBook($books);    
                 } else {        
                     echo 'The book is not available...';    
                 }

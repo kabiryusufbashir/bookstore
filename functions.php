@@ -29,4 +29,9 @@
         }    
         return false; 
     }
+
+    function updateBook(array $books){
+        $booksJson = json_encode($books);
+        file_put_contents(__DIR__ . '/books.json', $booksJson);
+    }
 ?>
