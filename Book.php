@@ -1,11 +1,11 @@
 <?php
     class Book{
         
-        public $isbn;
-        public $title;
-        public $author;
-        public $page;
-        public $available;
+        private $isbn;
+        private $title;
+        private $author;
+        private $page;
+        private $available;
 
         public function __construct(
             int $isbn, 
@@ -18,6 +18,26 @@
                 $this->author = $author;
                 $this->page = $page;
                 $this->available = $available;
+        }
+
+        public function getIsbn() : int{
+            return $this->isbn;
+        }
+
+        public function getTitle() : string{
+            return $this->title;
+        }
+
+        public function getAuthor() : string{
+            return $this->author;
+        }
+
+        public function getPage() : int{
+            return $this->page;
+        }
+
+        public function isAvailable() : bool{
+            return $this->available;
         }
         
 
@@ -36,6 +56,10 @@
                 return $this->available--;
                 return true;
             }
+        }
+
+        public function addCopy(){
+            $this->available++;
         }
     }
 
